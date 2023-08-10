@@ -6,7 +6,7 @@
 - user root senha root 
 - IDE ou CLI
 
-- ao configurar seu ambiente rode o comando mvn clena install.
+- ao configurar seu ambiente rode o comando mvn clen install.
 
 - se escolhher container fazer um docker pull na imagem do sql -> "docker pull mysql"
 - para ambos os casos criar um database com o nome checkout 
