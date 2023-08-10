@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,20 +18,20 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private List<String> produtos;
+    private String produtos;
 
     @Enumerated(EnumType.STRING)
     private FormaPagamento formaPagamento;
 
     private LocalDateTime dataPedido;
 
-    private Boolean Finalizado;
+    private Boolean finalizado;
     private Boolean cancelado;
 
     private Double valor;
 
 
-    private String cpfCliente;
+    private String cpf;
 
 
 }

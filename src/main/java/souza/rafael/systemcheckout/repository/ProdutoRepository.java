@@ -11,8 +11,8 @@ import java.util.List;
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     Produto findByCodBarraAndAtivoTrue(String codBarra);
 
-    @Query("Select * from produtos " +
-            "where codBarra IN :produtos " +
-            "AND ativo = 1 ")
+    @Query( value = "Select * from produtos " +
+            "where cod_barra IN :produtos " +
+            "AND ativo = 1 ", nativeQuery = true)
     List<Produto> findAllByCodBarra(List<String> produtos);
 }

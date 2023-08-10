@@ -29,9 +29,9 @@ public class PedidoService {
         valorTotal = produtoList.stream().mapToDouble(Produto::getPreco).sum();
 
         var pedido = new  Pedido();
-        pedido.setCpfCliente(cpfCliente);
+        pedido.setCpf(cpfCliente);
         pedido.setDataPedido(LocalDateTime.now());
-        pedido.setProdutos(produtos);
+        pedido.setProdutos( produtos.toString().replace("[","").replace("]",""));
         pedido.setValor(valorTotal);
         pedido.setFinalizado(false);
         pedido.setCancelado(false);
@@ -74,7 +74,7 @@ public class PedidoService {
         var pedidos = repository.findAllByCpf(cpfCliente);
 
         pedidos.forEach( p -> {
-            pedidoList.add(new PedidoRecord(p.getId(), p.getProdutos(),p.getFinalizado(), p.getValor()));
+            pedidoList.add(new PedidoRecord(p.getId(), List.of(p.getProdutos()),p.getFinalizado(), p.getValor(), p.getFormaPagamento().toString()));
         });
 
         return  pedidoList;

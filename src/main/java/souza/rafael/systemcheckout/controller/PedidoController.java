@@ -15,14 +15,14 @@ public class PedidoController {
     @Autowired
     private PedidoService service;
 
-    @GetMapping("{cpfCliente}")
-    public List<PedidoRecord> buscarPedidos(@PathVariable("cpfCliente") String cpfCliente) {
-        return  service.buscarPedidos(cpfCliente);
+    @GetMapping("{cpf}")
+    public List<PedidoRecord> buscarPedidos(@PathVariable("cpfCliente") String cpf) {
+        return  service.buscarPedidos(cpf);
     }
 
-    @PostMapping("/{cpfCliente")
-    public Double registrarPedido(@PathVariable("cpfCliente") String cpfCliente, @RequestBody List<String> produtos) {
-        return service.registrarPedido(cpfCliente ,produtos);
+    @PostMapping("/{cpf}")
+    public Double registrarPedido(@PathVariable("cpf") String cpf, @RequestBody List<String> produtos) {
+        return service.registrarPedido(cpf ,produtos);
     }
 
     @PutMapping("finalizar/{id}")
